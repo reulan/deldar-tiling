@@ -12,8 +12,9 @@ shader_parameter/angle = 10.0
 shader_parameter/repeat_x = 3.0
 shader_parameter/repeat_y = 3.0
 shader_parameter/intensity = 0.05
-shader_parameter/new_color = Color(0, 0, 0, 1)
 shader_parameter/alpha = 1.0
+shader_parameter/radian_mod1 = 360.0
+shader_parameter/radian_mod2 = 360.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pt2vt"]
 shader = ExtResource("1_dsml4")
