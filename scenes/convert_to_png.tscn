@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpfnotnxaro6b"]
+
+[ext_resource type="Script" path="res://scripts/save_to_png.gd" id="1_70p6l"]
+[ext_resource type="Texture2D" uid="uid://dfthh35dxf4d5" path="res://images/deldar_apoptosis_tile.jpg" id="2_t0u2g"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mjamu"]
+bg_color = Color(0.419956, 0.147247, 0.704699, 1)
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(250, 250)
+script = ExtResource("1_70p6l")
+
+[node name="SVContainer" type="SubViewportContainer" parent="."]
+custom_minimum_size = Vector2(1000, 1000)
+offset_left = -250.0
+offset_top = -250.0
+offset_right = -210.0
+offset_bottom = -210.0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SVContainer"]
+handle_input_locally = false
+size = Vector2i(1000, 1000)
+size_2d_override = Vector2i(1000, 1000)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="1" type="Sprite2D" parent="SVContainer/SubViewport"]
+position = Vector2(250, 250)
+texture = ExtResource("2_t0u2g")
+
+[node name="2" type="Sprite2D" parent="SVContainer/SubViewport"]
+position = Vector2(250, 250)
+texture = ExtResource("2_t0u2g")
+offset = Vector2(500, 0)
+flip_h = true
+
+[node name="3" type="Sprite2D" parent="SVContainer/SubViewport"]
+position = Vector2(250, 250)
+texture = ExtResource("2_t0u2g")
+offset = Vector2(0, 500)
+flip_v = true
+
+[node name="4" type="Sprite2D" parent="SVContainer/SubViewport"]
+position = Vector2(250, 250)
+texture = ExtResource("2_t0u2g")
+offset = Vector2(500, 500)
+flip_h = true
+flip_v = true
+
+[node name="Button" type="Button" parent="."]
+offset_left = -4.0
+offset_top = 602.0
+offset_right = 524.0
+offset_bottom = 702.0
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_mjamu")
+text = "Click Me To Save Merged Tile PNG"
+
+[connection signal="pressed" from="Button" to="." method="take_screenshot"]
